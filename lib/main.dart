@@ -28,6 +28,7 @@ class MyApp extends StatelessWidget {
     return GraphQLProvider(
       client: client,
       child: MaterialApp(
+          debugShowCheckedModeBanner: false,
           title: 'Rich & Morty',
           theme: ThemeData(
             colorScheme:

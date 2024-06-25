@@ -18,7 +18,7 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         title: Image.asset(
           "assets/logo.png",
-          height: 62,
+          height: 42,
         ),
       ),
       body: SafeArea(

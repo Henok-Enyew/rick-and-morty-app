@@ -25,8 +25,11 @@ if (flutterVersionName == null) {
 
 android {
     namespace = "com.example.rick_and_morty"
-    compileSdk = flutter.compileSdkVersion
-    ndkVersion = flutter.ndkVersion
+    compileSdkVersion 34
+    buildToolsVersion "34.0.0"
+
+    // compileSdk = flutter.compileSdkVersion
+    // ndkVersion = flutter.ndkVersion
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8

@@ -21,3 +21,25 @@ getAllCharachters() => gql(r"""
     }
   }
 """);
+getCharacterDetail() => gql(r"""
+  query ($id: ID!) {
+  character(id: $id) {
+    name
+    id
+    episode {
+      name
+    }
+    status
+    species
+    type
+    gender
+    origin {
+      name
+    }
+    location {
+      name
+    }
+  }
+}
+
+""");
