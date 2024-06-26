@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:rick_and_morty/app/utils/queries.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:rick_and_morty/app/widgets/character_widget.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class DetailScreen extends StatelessWidget {
   const DetailScreen({super.key, required this.id});
@@ -15,9 +16,7 @@ class DetailScreen extends StatelessWidget {
     // Query detial with the id
     // show the detal info
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: const Color(0XF49CFF66),
-      ),
+      appBar: AppBar(),
       body: Query(
         builder: (result, {fetchMore, refetch}) {
           if (result.data != null) {
@@ -188,7 +187,10 @@ class DetailScreen extends StatelessWidget {
               ),
             );
           } else if (result.isLoading) {
-            return const Text("Loading");
+            return const SpinKitCircle(
+              color: Color.fromARGB(199, 81, 217, 40),
+              size: 150.0,
+            );
           } else if (result.data == null) {
             return const Text("Data Not Found!");
           }
