@@ -135,18 +135,17 @@ class IconAndLabel extends StatelessWidget {
       {super.key,
       required this.label,
       required this.icon,
+      this.size = 16,
       this.flexible = false});
   final String label;
   final IconData icon;
+  final double size;
   final bool flexible;
 
   @override
   Widget build(BuildContext context) {
-    return Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      Icon(
-        icon,
-        size: 16,
-      ),
+    return Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
+      Icon(icon, size: size, color: const Color.fromARGB(221, 37, 37, 37)),
       const SizedBox(
         width: 6,
       ),
@@ -161,6 +160,11 @@ class IconAndLabel extends StatelessWidget {
             )
           : Text(
               label,
+
+              style: TextStyle(
+                fontSize: size,
+                color: const Color.fromARGB(221, 37, 37, 37),
+              ),
               // maxLines: 2,overflow: TextOverflow.ellipsis,
             ),
     ]);

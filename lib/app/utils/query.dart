@@ -28,10 +28,11 @@ getCharacterDetail() => gql(r"""
     id
     episode {
       name
+      episode
     }
     status
     species
-    type
+    image
     gender
     origin {
       name
