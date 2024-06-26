@@ -56,10 +56,16 @@ class DetailScreen extends StatelessWidget {
                         placeholder: (context, url) => Container(
                           color: Colors.grey,
                           height: 300,
+                          width: double.infinity,
                         ),
                         errorWidget: (context, url, error) => Container(
                           color: Colors.red,
+                          width: double.infinity,
+                          height: 300,
                         ),
+                        fit: BoxFit.cover,
+                        width: double.infinity,
+                        height: 300,
                       ),
                     ),
                     Padding(
