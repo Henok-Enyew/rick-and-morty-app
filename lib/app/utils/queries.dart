@@ -26,6 +26,7 @@ getCharacterDetail() => gql(r"""
   character(id: $id) {
     name
     id
+    type
     episode {
       name
       episode

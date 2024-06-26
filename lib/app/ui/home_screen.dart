@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:rick_and_morty/app/model/character.dart';
-import 'package:rick_and_morty/app/utils/query.dart';
+import 'package:rick_and_morty/app/utils/queries.dart';
 import 'package:rick_and_morty/app/widgets/character_widget.dart';
 
 class HomeScreen extends StatefulWidget {

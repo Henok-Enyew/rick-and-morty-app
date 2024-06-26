@@ -1,8 +1,6 @@
-import 'dart:ffi';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:rick_and_morty/app/utils/query.dart';
+import 'package:rick_and_morty/app/utils/queries.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:rick_and_morty/app/widgets/character_widget.dart';
 
@@ -18,7 +16,7 @@ class DetailScreen extends StatelessWidget {
     // show the detal info
     return Scaffold(
       appBar: AppBar(
-        title: Text(id),
+        backgroundColor: Color.fromARGB(127, 52, 214, 2),
       ),
       body: Query(
         builder: (result, {fetchMore, refetch}) {
@@ -30,8 +28,7 @@ class DetailScreen extends StatelessWidget {
                           "episode": e["episode"]?.toString() ?? "None",
                         })
                     .toList();
-            ;
-            // return Text(result.data!["character"]["name"].toString());
+
             return Align(
               alignment: Alignment.topCenter,
               child: Container(
@@ -56,16 +53,10 @@ class DetailScreen extends StatelessWidget {
                         placeholder: (context, url) => Container(
                           color: Colors.grey,
                           height: 300,
-                          width: double.infinity,
                         ),
                         errorWidget: (context, url, error) => Container(
                           color: Colors.red,
-                          width: double.infinity,
-                          height: 300,
                         ),
-                        fit: BoxFit.cover,
-                        width: double.infinity,
-                        height: 300,
                       ),
                     ),
                     Padding(
@@ -209,15 +200,5 @@ class DetailScreen extends StatelessWidget {
             variables: {"id": int.parse(id)}),
       ),
     );
-  }
-}
-
-class Episode extends StatelessWidget {
-  Episode episode;
-  Episode({super.key, required this.episode});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Placeholder();
   }
 }
