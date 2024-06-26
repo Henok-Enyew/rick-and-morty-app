@@ -16,7 +16,7 @@ class DetailScreen extends StatelessWidget {
     // show the detal info
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(127, 52, 214, 2),
+        backgroundColor: const Color(0XF49CFF66),
       ),
       body: Query(
         builder: (result, {fetchMore, refetch}) {
