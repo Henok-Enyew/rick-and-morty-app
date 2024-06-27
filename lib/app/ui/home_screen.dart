@@ -4,6 +4,7 @@ import 'package:rick_and_morty/app/model/character.dart';
 import 'package:rick_and_morty/app/utils/queries.dart';
 import 'package:rick_and_morty/app/widgets/character_widget.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -314,17 +315,23 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                 );
-              } else if (result.data == null) {
-                return const Text("Data Not Found!");
               } else if (result.isLoading) {
-                return const Center(
-                  child: Text("Loading..."),
+                return const SpinKitSpinningLines(
+                  color: Color.fromARGB(199, 81, 217, 40),
+                  size: 150.0,
                 );
-              } else {
+              } else if (result.data == null) {
                 return const Center(
-                  child: Center(child: Text("Something went wrong")),
-                );
+                    child: Text(
+                  "Connection failed! 🌐",
+                  style: TextStyle(fontSize: 24),
+                ));
               }
+              return const Center(
+                  child: Text(
+                "Something went wrong 😪",
+                style: TextStyle(fontSize: 24),
+              ));
             },
             options: QueryOptions(
                 fetchPolicy: FetchPolicy.cacheAndNetwork,
