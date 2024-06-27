@@ -192,7 +192,7 @@ class DetailScreen extends StatelessWidget {
               ),
             );
           } else if (result.isLoading) {
-            return const SpinKitCircle(
+            return const SpinKitSpinningLines(
               color: Color.fromARGB(199, 81, 217, 40),
               size: 150.0,
             );
