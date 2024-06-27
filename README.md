@@ -9,7 +9,7 @@ This is a Flutter application that uses the [Rick and Morty GraphQL API](https:/
 - Fetch and display a list of characters from the Rick and Morty universe
 - View detailed information about each character, including their name, status, species, gender, and image
 - Pagination support to load more characters as the user scrolls
-
+- Filter by gender and status of characters making it able to show alive and dead characters and also male and female ones
 
 ## Prerequisites
 
@@ -21,7 +21,7 @@ This is a Flutter application that uses the [Rick and Morty GraphQL API](https:/
 1. **Clone the repository**:
 
    ```
-   git clone https://github.com/itismrx/rick_and_morty.git
+   git clone https://github.com/Henok-Enyew/rick-and-morty-app.git
    ```
 
 2. **Change to the project directory**:
@@ -56,34 +56,9 @@ The app displays a list of characters from the Rick and Morty show. Users can ta
 
 The app uses the `graphql_flutter` package to communicate with the GraphQL API and the `flutter_riverpod` package for state management. Offline support is provided by caching the character data using the `cached_network_image` package.
 
-## Course Outline
-- [x] Download Android Studio
-   https://developer.android.com/studio
-    - [x] Install command line tool
-- [x] Install Dart & Flutter
-   https://docs.flutter.dev/get-started/install
-- [x] Install Flutter extension
-- [x] Run the first app
+## Contact
 
-- [x] Widgets  
-    - [x] Layout Widgets
-    - [x] Styling Widgets
-    - [x] Animation Widgets
-
-- [x] 3rd party packages
-- [x] Folder Structure
-- [x] GraphQL
-    - [x] flutter_graphql
-- [ ] RiverPod
-
-## Assignment
-- Detail Page
-- Search  by name
-- Additional Filter
-
-## Recommended Courses
-
-
+[Telegram](t.me/Enoch90s) | [Instagram](https://www.instagram.com/enoch90s/)
 
 ## License
 
