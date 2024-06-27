@@ -52,10 +52,15 @@ class DetailScreen extends StatelessWidget {
                         placeholder: (context, url) => Container(
                           color: Colors.grey,
                           height: 300,
+                          width: double.infinity,
                         ),
                         errorWidget: (context, url, error) => Container(
+                          height: 300,
+                          width: double.infinity,
                           color: Colors.red,
                         ),
+                        fit: BoxFit.cover,
+                        width: double.infinity,
                       ),
                     ),
                     Padding(
@@ -192,9 +197,17 @@ class DetailScreen extends StatelessWidget {
               size: 150.0,
             );
           } else if (result.data == null) {
-            return const Text("Data Not Found!");
+            return const Center(
+                child: Text(
+              "Connection failed! 🌐",
+              style: TextStyle(fontSize: 24),
+            ));
           }
-          return const Text("Something went wrong");
+          return const Center(
+              child: Text(
+            "Something went wrong 😪",
+            style: TextStyle(fontSize: 24),
+          ));
         },
         options: QueryOptions(
             fetchPolicy: FetchPolicy.cacheAndNetwork,

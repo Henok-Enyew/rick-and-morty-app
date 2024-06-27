@@ -20,13 +20,70 @@ class _HomeScreenState extends State<HomeScreen> {
           "assets/logo.png",
           height: 42,
         ),
+        // backgroundColor: const Color.fromARGB(25, 0, 0, 0),
+        actions: const <Widget>[
+          Padding(
+            padding: EdgeInsets.only(right: 5),
+            child: SizedBox(
+              height: 30,
+              width: 200,
+              child: Expanded(
+                child: TextField(
+                  maxLength: 35,
+                  minLines: 1,
+                  maxLines: 1,
+                  autofocus: false,
+                  decoration: InputDecoration(
+                    disabledBorder: OutlineInputBorder(
+                        borderSide:
+                            BorderSide(width: 1, color: Colors.black12)),
+                    focusedBorder: OutlineInputBorder(
+                        borderSide:
+                            BorderSide(width: 1, color: Colors.black26)),
+                    hintText: 'Character name..',
+                    hintStyle: TextStyle(
+                      color: Colors.grey,
+                      fontStyle: FontStyle.italic,
+                      fontWeight: FontWeight.w400,
+                    ),
+                    border: OutlineInputBorder(),
+                    counterText: "",
+                    contentPadding:
+                        EdgeInsets.symmetric(vertical: 2.0, horizontal: 8.0),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
+
+        // Padding(
+        //     padding: const EdgeInsets.symmetric(horizontal: 12),
+        //     child: Row(
+        //       mainAxisSize: MainAxisSize.min,
+        //       children: [
+        //         const Expanded(
+        //           child: TextField(
+        //             decoration: InputDecoration(
+        //               hintText: 'Search...',
+        //               border: OutlineInputBorder(),
+        //             ),
+        //           ),
+        //         ),
+        //         const SizedBox(width: 8),
+        //         IconButton(
+        //           icon: const Icon(Icons.search),
+        //           onPressed: () {},
+        //         ),
+        //       ],
+        //     ),
+        //   ),
       ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Query(
             builder: (result, {fetchMore, refetch}) {
-              // We have data
               if (result.data != null) {
                 int? nextPage = 1;
                 List<Character> characters =
