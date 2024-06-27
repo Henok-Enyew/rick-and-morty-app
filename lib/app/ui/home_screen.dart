@@ -314,19 +314,13 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                 );
-              }
-              // We got data but it is null
-              else if (result.data == null) {
+              } else if (result.data == null) {
                 return const Text("Data Not Found!");
-              }
-              // We don't have data yet -> LOADING STATE
-              else if (result.isLoading) {
+              } else if (result.isLoading) {
                 return const Center(
                   child: Text("Loading..."),
                 );
-              }
-              // error state
-              else {
+              } else {
                 return const Center(
                   child: Center(child: Text("Something went wrong")),
                 );
