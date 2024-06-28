@@ -58,6 +58,9 @@ class _HomeScreenState extends State<HomeScreen> {
               height: 35,
               width: 150,
               child: TextField(
+                style: const TextStyle(
+                  color: Color(0xf441ae20),
+                ),
                 controller: _searchController,
                 onChanged: (value) {
                   setState(() {
@@ -187,51 +190,50 @@ class _HomeScreenState extends State<HomeScreen> {
                 padding: EdgeInsets.fromLTRB(16, gap, 16, 30),
                 child: Column(
                   children: [
-                    Center(
-                      child: Row(
-                        children: [
-                          IconButton(
-                            icon: Image.asset(
-                              'assets/github.png',
-                              width: 36,
-                              height: 36,
-                            ),
-                            onPressed: () async {
-                              await launchUrl(links[1]);
-                            },
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        IconButton(
+                          icon: Image.asset(
+                            'assets/github.png',
+                            width: 36,
+                            height: 36,
                           ),
-                          IconButton(
-                            icon: Image.asset(
-                              'assets/linkedin.png',
-                              width: 36,
-                              height: 36,
-                            ),
-                            onPressed: () async {
-                              await launchUrl(links[2]);
-                            },
+                          onPressed: () async {
+                            await launchUrl(links[1]);
+                          },
+                        ),
+                        IconButton(
+                          icon: Image.asset(
+                            'assets/linkedin.png',
+                            width: 36,
+                            height: 36,
                           ),
-                          IconButton(
-                            icon: Image.asset(
-                              'assets/telegram.png',
-                              width: 36,
-                              height: 36,
-                            ),
-                            onPressed: () async {
-                              await launchUrl(links[0]);
-                            },
+                          onPressed: () async {
+                            await launchUrl(links[2]);
+                          },
+                        ),
+                        IconButton(
+                          icon: Image.asset(
+                            'assets/telegram.png',
+                            width: 36,
+                            height: 36,
                           ),
-                          IconButton(
-                            icon: Image.asset(
-                              'assets/instagram.png',
-                              width: 36,
-                              height: 36,
-                            ),
-                            onPressed: () async {
-                              await launchUrl(links[3]);
-                            },
+                          onPressed: () async {
+                            await launchUrl(links[0]);
+                          },
+                        ),
+                        IconButton(
+                          icon: Image.asset(
+                            'assets/instagram.png',
+                            width: 36,
+                            height: 36,
                           ),
-                        ],
-                      ),
+                          onPressed: () async {
+                            await launchUrl(links[3]);
+                          },
+                        ),
+                      ],
                     ),
                     const SizedBox(
                       height: 10,
