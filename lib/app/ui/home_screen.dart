@@ -18,7 +18,6 @@ class _HomeScreenState extends State<HomeScreen> {
   String _searchQuery = '';
   String _selectedStatus = 'All';
   String _selectedGender = 'All';
-
   final List<Uri> links = [
     Uri.parse('https://t.me/Enoch90s'),
     Uri.parse('https://github.com/Henok-Enyew'),
@@ -40,7 +39,64 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final double gap = MediaQuery.of(context).size.height * .43;
+
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: const Color(0xFF121C0E),
+        iconTheme: const IconThemeData(
+          color: Colors.white,
+        ),
+        title: Image.asset(
+          "assets/logo.png",
+          height: 42,
+        ),
+        actions: <Widget>[
+          Padding(
+            padding: const EdgeInsets.only(right: 5),
+            child: SizedBox(
+              height: 35,
+              width: 150,
+              child: TextField(
+                controller: _searchController,
+                onChanged: (value) {
+                  setState(() {
+                    _searchQuery = value;
+                  });
+                },
+                maxLength: 35,
+                minLines: 1,
+                maxLines: 1,
+                autofocus: false,
+                decoration: const InputDecoration(
+                  disabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(width: 1, color: Colors.grey)),
+                  focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(width: 1, color: Colors.grey)),
+                  hintText: 'Rick Sanchez',
+                  labelText: "Search character",
+                  labelStyle: TextStyle(
+                    color: Colors.grey,
+                    fontStyle: FontStyle.italic,
+                    fontWeight: FontWeight.w400,
+                  ),
+                  hintStyle: TextStyle(
+                    color: Colors.grey,
+                    fontStyle: FontStyle.italic,
+                    fontWeight: FontWeight.w400,
+                  ),
+                  suffixIcon: Icon(Icons.search, size: 25),
+                  suffixIconColor: Colors.grey,
+                  border: OutlineInputBorder(),
+                  counterText: "",
+                  contentPadding:
+                      EdgeInsets.symmetric(vertical: 2.0, horizontal: 8.0),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
       drawer: Drawer(
         child: Container(
           color: const Color(0xFF121C0E), // Background color
@@ -128,62 +184,65 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.fromLTRB(16, 320, 16, 30),
+                padding: EdgeInsets.fromLTRB(16, gap, 16, 30),
                 child: Column(
                   children: [
-                    const Text(
-                      'Made with 💚 by Henok Enyew',
-                      style: TextStyle(
-                        color: Color(0xf441ae20),
-                        fontSize: 16,
+                    Center(
+                      child: Row(
+                        children: [
+                          IconButton(
+                            icon: Image.asset(
+                              'assets/github.png',
+                              width: 36,
+                              height: 36,
+                            ),
+                            onPressed: () async {
+                              await launchUrl(links[1]);
+                            },
+                          ),
+                          IconButton(
+                            icon: Image.asset(
+                              'assets/linkedin.png',
+                              width: 36,
+                              height: 36,
+                            ),
+                            onPressed: () async {
+                              await launchUrl(links[2]);
+                            },
+                          ),
+                          IconButton(
+                            icon: Image.asset(
+                              'assets/telegram.png',
+                              width: 36,
+                              height: 36,
+                            ),
+                            onPressed: () async {
+                              await launchUrl(links[0]);
+                            },
+                          ),
+                          IconButton(
+                            icon: Image.asset(
+                              'assets/instagram.png',
+                              width: 36,
+                              height: 36,
+                            ),
+                            onPressed: () async {
+                              await launchUrl(links[3]);
+                            },
+                          ),
+                        ],
                       ),
                     ),
                     const SizedBox(
                       height: 10,
+                      // height: MediaQuery.of(context).size.height * .43,
                     ),
-                    Row(
-                      children: [
-                        IconButton(
-                          icon: Image.asset(
-                            'assets/github.png',
-                            width: 48,
-                            height: 48,
-                          ),
-                          onPressed: () async {
-                            await launchUrl(links[1]);
-                          },
-                        ),
-                        IconButton(
-                          icon: Image.asset(
-                            'assets/linkedin.png',
-                            width: 48,
-                            height: 48,
-                          ),
-                          onPressed: () async {
-                            await launchUrl(links[2]);
-                          },
-                        ),
-                        IconButton(
-                          icon: Image.asset(
-                            'assets/telegram.png',
-                            width: 48,
-                            height: 48,
-                          ),
-                          onPressed: () async {
-                            await launchUrl(links[0]);
-                          },
-                        ),
-                        IconButton(
-                          icon: Image.asset(
-                            'assets/instagram.png',
-                            width: 48,
-                            height: 48,
-                          ),
-                          onPressed: () async {
-                            await launchUrl(links[3]);
-                          },
-                        ),
-                      ],
+                    const Text(
+                      'Made with 💚 by Henok Enyew © 2024',
+                      style: TextStyle(
+                        color: Color(0xf441ae20),
+                        fontSize: 14,
+                      ),
                     ),
                   ],
                 ),
@@ -192,60 +251,9 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
-      appBar: AppBar(
-        title: Image.asset(
-          "assets/logo.png",
-          height: 42,
-        ),
-        actions: <Widget>[
-          Padding(
-            padding: const EdgeInsets.only(right: 5),
-            child: SizedBox(
-              height: 35,
-              width: 150,
-              child: TextField(
-                controller: _searchController,
-                onChanged: (value) {
-                  setState(() {
-                    _searchQuery = value;
-                  });
-                },
-                maxLength: 35,
-                minLines: 1,
-                maxLines: 1,
-                autofocus: false,
-                decoration: const InputDecoration(
-                  disabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(width: 1, color: Colors.black12)),
-                  focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(width: 1, color: Colors.black26)),
-                  hintText: 'Rick Sanchez',
-                  labelText: "Search character",
-                  labelStyle: TextStyle(
-                    color: Colors.grey,
-                    fontStyle: FontStyle.italic,
-                    fontWeight: FontWeight.w400,
-                  ),
-                  hintStyle: TextStyle(
-                    color: Colors.grey,
-                    fontStyle: FontStyle.italic,
-                    fontWeight: FontWeight.w400,
-                  ),
-                  suffixIcon: Icon(Icons.search, size: 25),
-                  suffixIconColor: Colors.black12,
-                  border: OutlineInputBorder(),
-                  counterText: "",
-                  contentPadding:
-                      EdgeInsets.symmetric(vertical: 2.0, horizontal: 8.0),
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
           child: Query(
             builder: (result, {fetchMore, refetch}) {
               if (result.data != null) {

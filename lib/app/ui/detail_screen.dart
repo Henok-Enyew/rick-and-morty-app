@@ -16,7 +16,25 @@ class DetailScreen extends StatelessWidget {
     // Query detial with the id
     // show the detal info
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        iconTheme: const IconThemeData(
+          color: Colors.white,
+        ),
+        backgroundColor: const Color(0xFF121C0E),
+        actions: const <Widget>[
+          Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 4),
+              child: SizedBox(
+                child: Text(
+                  "Detail Info.",
+                  style: TextStyle(
+                    color: Color(0xf441ae20),
+                    fontSize: 32,
+                  ),
+                ),
+              ))
+        ],
+      ),
       body: Query(
         builder: (result, {fetchMore, refetch}) {
           if (result.data != null) {
